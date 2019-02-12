@@ -22,10 +22,11 @@
                 <th>Building Name</th>
                 <th></th>
               </tr>
-              <tr ng-repeat="listing in listings | filter: query" ng-click="showDetails($index)">
+              <tr ng-repeat="listing in listings | filter: query | orderBy: 'code'" ng-click="showDetails($index)">
                 <td>{{listing.code}}</td>
                 <td>{{listing.name}}</td>
-                <td ng-click="deleteListing(listing._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+                <td><button ng-click="deleteListing($index)">
+                  <span style="color: red;" class="glyphicon glyphicon-remove"></span></button></td>
               </tr>
             </table>
           </div>
